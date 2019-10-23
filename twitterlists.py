@@ -25,31 +25,22 @@ api = tweepy.API(auth)
 
 
 # Store timeline of tweets from list members as "ResultSet" objects
-ethereum = api.list_timeline(list_id='1054920788019572736', include_rts = 'false')
+ethereum = api.list_timeline(list_id='1054920788019572736', include_rts = 'false', count = 50)
 
-blockchain_gaming =  api.list_timeline(list_id="884466365532209153")
-
-
+blockchain_gaming =  api.list_timeline(list_id="884466365532209153", include_rts = 'false', count = 50)
 
 #return tweets from timeline as ResultSet object 
 
 ethereum
 
 
-#return single tweet as Status object
+#return text from 1st tweet in ResultSet
+
+ethereum[0]._json['text']
 
 
-ethereum[0]
-
-
-#return json for single tweet
-
-ethereum[0]._json
-
-
-#return json for set of tweets??
-
-for tweet in ethereum:
-    print (ethereum[0]._json)
-
-
+#Return text from all tweets in ResultSet
+tweet = 0
+for tweetcount in ethereum:
+    print (ethereum[tweet]._json['text'])
+    tweet += 1

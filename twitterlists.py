@@ -27,8 +27,10 @@ ethereum
 
 ethereum[0]._json['text']
 
-#Return text from all tweets in ResultSet
+#Return text, retweet count, favorite count, from all tweets in ResultSet
 tweet = 0
 for tweetcount in ethereum:
     print (ethereum[tweet]._json['text'])
+    print (ethereum[tweet]._json['retweet_count'])
+    print (ethereum[tweet]._json['favorite_count'])
     tweet += 1

@@ -7,3 +7,5 @@ To do:
 2. Store tweet text and data in a database or data frame.
 
 3. Curate lists
+
+4. Allow user to specficy list to lookup from termnial

@@ -1,6 +1,5 @@
 """
 Resources:    
-
 https://tweepy.readthedocs.io/en/latest/api.html#list-methods   
 https://stackoverflow.com/questions/42542327/how-to-extract-information-from-tweepy-resultset
 https://stackoverflow.com/questions/27900451/convert-tweepy-status-object-into-json
@@ -30,7 +29,18 @@ ethereum[0]._json['text']
 #Return text, retweet count, favorite count, from all tweets in ResultSet
 tweet = 0
 for tweetcount in ethereum:
-    print (ethereum[tweet]._json['text'])
-    print (ethereum[tweet]._json['retweet_count'])
-    print (ethereum[tweet]._json['favorite_count'])
+    print ('tweet text: ' + ethereum[tweet]._json['text'])
+    print ('retweet count: ' + str(ethereum[tweet]._json['retweet_count']))
+    print ('favorite count: ' + str(ethereum[tweet]._json['favorite_count']))
+    print ('user name: ' + ethereum[tweet]._json['user']['name'])
+    print ('screen name: ' + ethereum[tweet]._json['user']['screen_name'])
+    tweet += 1
+    
+tweet = 0
+for tweetcount in blockchain_gaming:
+    print ('tweet text: ' + blockchain_gaming[tweet]._json['text'])
+    print ('retweet count: ' + str(blockchain_gaming[tweet]._json['retweet_count']))
+    print ('favorite count: ' + str(blockchain_gaming[tweet]._json['favorite_count']))
+    print ('user name: ' + ethereum[tweet]._json['user']['name'])
+    print ('screen name: ' + ethereum[tweet]._json['user']['screen_name'])
     tweet += 1

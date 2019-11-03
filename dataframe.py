@@ -53,16 +53,3 @@ with open('tweet_json_ethereum.txt', encoding='utf-8') as json_file:
     #create dataframe
     ethereum_DF = pd.DataFrame(my_demo_list, columns = 
                               ['tweet_id', 'text', 'favorite_count', 'retweet_count', 'created_at', 'user_name', 'screen_name'])
-    
-        
-    
-
-    
-    
-
-
-
-
-
-
-

@@ -43,12 +43,3 @@ for tweetdata in blockchain_gaming:
     print ('user name: ' + ethereum[tweet]._json['user']['name'])
     print ('screen name: ' + ethereum[tweet]._json['user']['screen_name'])
     tweet += 1
-    
-
-
-    
-        
-    
-
-    
-    

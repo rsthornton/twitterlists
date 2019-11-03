@@ -1,5 +1,8 @@
 """ 
-Creating a Pandas dataframe with recent tweets from a list
+
+1. Creating a Pandas dataframe with recent tweets from a list 
+2. Identifying the most favorited and retweeted tweets in the dataframe
+
 
 """
 
@@ -17,18 +20,18 @@ api = tweepy.API(auth)
 # Store timeline of tweets from list members as "ResultSet" objects
 ethereum = api.list_timeline(list_id='1054920788019572736', include_rts = 'false', count = 50)
 
-#Isolate json of tweepy status objects, add them into a list
+# Isolate json of tweepy "status" objects, add them into a list of dictionaries
 
 eth_list_of_dicts = []
 for each_json_tweet in ethereum:
     eth_list_of_dicts.append(each_json_tweet._json)
     
     
-# Write list into a text file
+# Write list of tweets into a text file
 with open('tweet_json_ethereum.txt', 'w') as file:
     file.write(json.dumps(eth_list_of_dicts, indent=4))
     
-#Create DataFrame from text file
+# Set up dataframe from information in text file 
 
 my_demo_list = []
 with open('tweet_json_ethereum.txt', encoding='utf-8') as json_file:
@@ -48,8 +51,16 @@ with open('tweet_json_ethereum.txt', encoding='utf-8') as json_file:
                              'created_at': created_at,
                              'user_name': str(user_name),
                              'screen_name': str(screen_name)
-                        
                             })
-    #create dataframe
-    ethereum_DF = pd.DataFrame(my_demo_list, columns = 
-                              ['tweet_id', 'text', 'favorite_count', 'retweet_count', 'created_at', 'user_name', 'screen_name'])
+# Create dataframe
+ethereum_DF = pd.DataFrame(my_demo_list, columns = 
+                           ['tweet_id', 'text', 'favorite_count', 'retweet_count', 'created_at', 'user_name', 'screen_name'])
+
+
+# Dataframe of 10 most favorited tweets
+topfavorites = ethereum_DF.nlargest(10, ['favorite_count'])
+
+
+# Dataframe of 10 most retweeted tweets
+
+topretweets = ethereum_DF.nlargest(10, ['retweet_count'])

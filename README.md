@@ -10,13 +10,11 @@ Project Motivation and Goals:
 
 To do: 
 
-1. Figure out how to retrieve more tweets from timeline. Max tweets to retrieve "count" paramater is set at 50 but unable to retrieve more than 17 tweets from Ethereum list, 25 from blockchain gaming
+1. Figure out how to retrieve more tweets from timeline. Max tweets to retrieve "count" paramater is set at 50 but unable to retrieve this many at one time. Ideally will be able to retrieve all tweets from certain period of time (ie: past 12/24 hrs.
 
-2. Identify most liked and retweeted tweets from a 24hr period
+2. Curate lists
 
-3. Curate lists
-
-4. Allow user to specficy a list to get information from using terminal
+3. Allow user to specficy a list to get information from using terminal
 
 5. Send daily email with most popular tweets?
 

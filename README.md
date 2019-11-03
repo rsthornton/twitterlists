@@ -3,7 +3,7 @@
 Project Motivation and Goals:
 
 
-1. Reduce time spent scrolling through feeds to find high important Tweets. Lists can help with this but have limited functionality and  streams can still be overwhelming if they have lots of users 
+1. Reduce time spent scrolling through feeds to find important Tweets.
 
 2. Quickly identify highest quality and most popular tweets from a set of curated Twitter lists
 

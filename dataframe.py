@@ -11,11 +11,12 @@ import tweepy
 import pandas as pd
 import json
 
-auth = tweepy.OAuthHandler("bZjygvWPWHA5M4o7AHTrMnKjV", "R8lSiVHIkCeg2RDn74uaN0zteI3aLz6NnHi9RWj0T7D2ILHmLl" )
-auth.set_access_token("365249100-ygySokQkQrh8z4pWAZyGonQxVw0eA3lucuS1aJCU", "BqNmTdXhRgqNBPmmr4UFg0eLtyVetxshWxEUVoBJAbAIM")
+#Connect to Twitter API
+API, API_secret = input("Enter your Consumer API Key: "), input("Enter your API Secret Key: ")
+Access, Access_secret = input("Enter your Access token: "), input("Enter your Access token secret: ")
+auth = tweepy.OAuthHandler(API, API_secret)
+auth.set_access_token(Access, Access_secret)
 api = tweepy.API(auth)
-
-
 
 # Store timeline of tweets from list members as "ResultSet" objects
 ethereum = api.list_timeline(list_id='1054920788019572736', include_rts = 'false', count = 50)

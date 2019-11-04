@@ -6,7 +6,6 @@
 
 """
 
-# Connect to Twitter API
 import tweepy
 import pandas as pd
 import json

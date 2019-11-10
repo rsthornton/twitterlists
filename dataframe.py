@@ -4,9 +4,12 @@ A script to identify the most retweeted tweets from a specified list of users
 Available lists:
 
 Blockchain_gaming
-Ethereum
+ETH
 Economics 
-
+AI
+Bitcoin
+Space
+Systems
 """
 
 import tweepy
@@ -25,20 +28,10 @@ auth = tweepy.OAuthHandler("bZjygvWPWHA5M4o7AHTrMnKjV", "R8lSiVHIkCeg2RDn74uaN0z
 auth.set_access_token("365249100-ygySokQkQrh8z4pWAZyGonQxVw0eA3lucuS1aJCU", "BqNmTdXhRgqNBPmmr4UFg0eLtyVetxshWxEUVoBJAbAIM")
 api = tweepy.API(auth)
 
-
 # Store timeline of tweets from list members as "ResultSet" objects
 
 my_slug = input("Enter a list name: ")
-
-if my_slug == 'Ethereum':
-    my_slug = 'ETH'
-
-elif my_slug == 'Blockchain_gaming':
-    my_slug = 'Blockchain-gaming'
-    
-elif my_slug == 'Economics':
-    my_slug = 'Economics'
-
+  
 my_list = api.list_timeline(screen_name='@shingaithornton', slug = my_slug, owner_screen_name='@shingaithornton', include_rts = 'false', count = 10000)
 
 

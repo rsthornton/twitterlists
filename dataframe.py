@@ -1,15 +1,6 @@
 """ 
 A script to identify the most retweeted tweets from a specified list of users
 
-Available lists:
-
-Blockchain_gaming
-ETH
-Economics 
-AI
-Bitcoin
-Space
-Systems
 """
 
 import tweepy
@@ -30,10 +21,9 @@ api = tweepy.API(auth)
 
 # Store timeline of tweets from list members as "ResultSet" objects
 
-my_slug = input("Enter a list name: ")
+my_slug = input("Choose a list (Blockchain_gaming, ETH, Economics, AI, Bitcoin, Space, Systems) :  ")
   
 my_list = api.list_timeline(screen_name='@shingaithornton', slug = my_slug, owner_screen_name='@shingaithornton', include_rts = 'false', count = 10000)
-
 
 # Isolate json of tweepy "status" objects, add them into a list of dictionaries
 

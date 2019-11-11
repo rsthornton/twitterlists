@@ -54,20 +54,27 @@ with open('tweet_json_ethereum.txt', encoding='utf-8') as json_file:
     for each_dictionary in all_data:
         text = each_dictionary['text']
         retweet_count = each_dictionary['retweet_count']
+        favorite_count = each_dictionary['favorite_count']
         user_name = each_dictionary['user']['name']
-        #url = each_dictionary['entities']['urls'][0]['url']
         created_at = each_dictionary['created_at']
+        
+        try:
+            url = each_dictionary['entities']['urls'][0]['url']
+        except:
+            url = 'none'
+        
         my_demo_list.append({'text': str(text),
                              'retweet_count': int(retweet_count),
-                             #'url': str(url),
+                             'url': str(url),
+                             'combo': (int(retweet_count) + int(favorite_count)),
                              'user_name': str(user_name),
                              'created_at': str(created_at)
                             })
 # Create dataframe
 ethereum_DF = pd.DataFrame(my_demo_list, columns = 
-                           ['text', 'retweet_count', 'user_name', 'created_at'])
+                           ['text', 'retweet_count', 'combo', 'url', 'user_name', 'created_at'])
 
 
 # Dataframe of 10 most retweeted tweets
 
-topretweets = ethereum_DF.nlargest(25, ['retweet_count'])
+topretweets = ethereum_DF.nlargest(50, ['retweet_count'])

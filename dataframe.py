@@ -2,7 +2,6 @@
 A script to identify the most retweeted tweets from curated user lists
 
 """
-
 import tweepy
 import pandas as pd
 import json
@@ -16,7 +15,6 @@ api = tweepy.API(auth)
 # Store tweet timelines from list members as a dictionary of "ResultSet" objects
 
 the_lists =  {"gaming" : "Blockchain-gaming", "gurus": "Cryptogurus", "eth" : "ETH", "econ" : "Economics", "ai": "AI", "btc" :  "Bitcoin", "space" :  "Space", "systems" : "Systems"}
-
 
 for slug in the_lists.keys():
     the_lists[slug] = api.list_timeline(screen_name='@shingaithornton', slug = the_lists[slug], owner_screen_name='@shingaithornton', include_rts = 'false', count = 10000)
@@ -68,7 +66,6 @@ make_txt('btc', btc_tweets)
 make_txt('space', space_tweets)
 make_txt('systems', systems_tweets)
     
-            
 # Set up dataframes from text files
 
 gaming_list, gurus_list, eth_list, econ_list, ai_list, btc_list, space_list, systems_list  = [],[],[],[],[],[],[],[]  
@@ -105,8 +102,7 @@ make_list(ai_list, 'tweet_json_ai.txt')
 make_list(btc_list, 'tweet_json_btc.txt')
 make_list(space_list, 'tweet_json_space.txt')
 make_list(systems_list, 'tweet_json_systems.txt')
-
-        
+   
 # Create dataframes
 
 def make_DF(listname):
@@ -114,6 +110,5 @@ def make_DF(listname):
                            ['text', 'retweet_count', 'combo', 'url', 'user_name', 'created_at'])
     listname = listname.nlargest(50, ['retweet_count'])
     return listname
-    
 
 eth_df, gaming_df, gurus_df, econ_df, ai_df, btc_df, space_df, systems_df = make_DF(eth_list), make_DF(gaming_list), make_DF(gurus_list), make_DF(econ_list), make_DF(ai_list), make_DF(btc_list), make_DF(space_list), make_DF(systems_list)

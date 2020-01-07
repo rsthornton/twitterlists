@@ -112,3 +112,14 @@ def make_DF(listname):
     return listname
 
 eth_df, gaming_df, gurus_df, econ_df, ai_df, btc_df, space_df, systems_df = make_DF(eth_list), make_DF(gaming_list), make_DF(gurus_list), make_DF(econ_list), make_DF(ai_list), make_DF(btc_list), make_DF(space_list), make_DF(systems_list)
+
+
+eth_df.to_excel("ethexcel.xlsx")
+gaming_df.to_excel("gamingexcel.xlsx")
+gurus_df.to_excel("gurusexcel.xlsx")
+econ_df.to_excel("econexcel.xlsx")
+ai_df.to_excel("aiexcel.xlsx")
+btc_df.to_excel("btcxcel.xlsx")
+space_df.to_excel("spaceexcel.xlsx")
+systems_df.to_excel("systemsexcel.xlsx")
+

@@ -17,7 +17,7 @@ api = tweepy.API(auth)
 the_lists =  {"gaming" : "Blockchain-gaming", "gurus": "Cryptogurus", "eth" : "ETH", "econ" : "Economics", "ai": "AI", "btc" :  "Bitcoin", "space" :  "Space", "systems" : "Systems"}
 
 for slug in the_lists.keys():
-    the_lists[slug] = api.list_timeline(screen_name='@shingaithornton', slug = the_lists[slug], owner_screen_name='@shingaithornton', include_rts = 'false', count = 10000)
+    the_lists[slug] = api.list_timeline(screen_name='@shingaithornton', slug = the_lists[slug], owner_screen_name='@shingaithornton', include_rts = 'false', count = 5000)
     
 # Isolate json of tweepy "status" objects, add them into a list of dictionaries
 
@@ -31,7 +31,7 @@ def get_tweets(listname, listcollection):
 
 get_tweets('gaming', gaming_tweets), get_tweets('gurus', gurus_tweets), get_tweets('eth', eth_tweets), get_tweets('econ', econ_tweets)
 get_tweets('ai', ai_tweets), get_tweets('btc', btc_tweets), get_tweets('space', space_tweets), get_tweets('systems', systems_tweets) 
-                     
+                  
 # Write dictionaries of tweets into text files
                   
 def make_txt(listname, tweets):
@@ -77,7 +77,7 @@ make_list(ai_list, 'tweet_json_ai.txt'), make_list(btc_list, 'tweet_json_btc.txt
 def make_DF(listname):
     listname =  pd.DataFrame(listname, columns = 
                            ['text', 'retweet_count', 'combo', 'url', 'user_name', 'created_at'])
-    listname = listname.nlargest(50, ['retweet_count'])
+    listname = listname.nlargest(15, ['retweet_count'])
     return listname
 
 eth_df, gaming_df, gurus_df, econ_df, ai_df, btc_df, space_df, systems_df = make_DF(eth_list), make_DF(gaming_list), make_DF(gurus_list), make_DF(econ_list), make_DF(ai_list), make_DF(btc_list), make_DF(space_list), make_DF(systems_list)
